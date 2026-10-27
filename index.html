@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosso Universo — Um presente para você</title>
+  <meta name="description" content="Uma experiência digital personalizada para celebrar uma história de amor." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===================== TELA DE ABERTURA ===================== -->
+  <section id="openingScreen" class="screen opening-screen" aria-labelledby="openingTitle">
+    <div class="opening-inner">
+      <p class="opening-brand" id="openingBrand">NOSSO UNIVERSO</p>
+
+      <div class="gift" id="giftBox" aria-hidden="true">
+        <div class="gift-glow"></div>
+        <div class="gift-lid">
+          <span class="gift-bow"></span>
+        </div>
+        <div class="gift-body">
+          <span class="gift-ribbon-v"></span>
+          <span class="gift-ribbon-h"></span>
+        </div>
+      </div>
+
+      <h1 id="openingTitle" class="opening-title">Uma história só nossa</h1>
+      <p class="opening-message" id="openingMessage">Preparei algo especial para você.</p>
+
+      <button id="openGiftBtn" class="btn btn-primary btn-lg" type="button">
+        Abrir meu presente
+      </button>
+
+      <p class="opening-hint">Há uma surpresa esperando por você.</p>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIÊNCIA ===================== -->
+  <main id="experience" class="experience hidden" aria-hidden="true">
+
+    <!-- ---------- HERO ---------- -->
+    <section id="heroSection" class="section hero-section" aria-labelledby="heroTitle">
+      <div class="section-inner hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Capítulo 01</p>
+          <h2 id="heroTitle" class="display-xl" data-bind="displayNames">Marina & Rafael</h2>
+          <p class="hero-date" data-bind="startDatePretty">Desde 12 de março de 2022</p>
+          <p class="lead">
+            Toda história de amor tem um começo.<br />
+            A nossa começou com um encontro que o universo preparou.
+          </p>
+
+          <div class="counter" aria-live="polite">
+            <p class="counter-label">Estamos juntos há</p>
+            <p class="counter-value" id="counterValue">—</p>
+          </div>
+
+          <button class="btn btn-primary" data-scroll-to="#memoriesSection" type="button">
+            Explorar nossas memórias
+          </button>
+        </div>
+
+        <figure class="hero-photo polaroid">
+          <img id="heroImage" src="" alt="Foto principal do casal" loading="eager" />
+          <figcaption data-bind="tagline">Uma história só nossa</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ---------- MEMÓRIAS / IMPRESSORA ---------- -->
+    <section id="memoriesSection" class="section memories-section" aria-labelledby="memoriesTitle">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="eyebrow">Capítulo 02</p>
+          <h2 id="memoriesTitle" class="display-lg">Nossas memórias</h2>
+          <p class="lead-sm">
+            Uma impressora de memórias. Cada foto revela um pedacinho da nossa história.
+          </p>
+        </header>
+
+        <div class="printer-stage" aria-hidden="true">
+          <div class="printer" id="printer">
+            <div class="printer-top"></div>
+            <div class="printer-slot"></div>
+            <div class="printer-front">
+              <span class="printer-light" id="printerLight"></span>
+              <span class="printer-dot"></span>
+              <span class="printer-dot"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="printer-controls">
+          <button id="printMemoriesBtn" class="btn btn-primary" type="button">
+            Revelar nossas memórias
+          </button>
+          <button id="skipPrinterBtn" class="btn btn-ghost hidden" type="button">
+            Revelar todas de uma vez
+          </button>
+          <button id="reprintBtn" class="btn btn-ghost hidden" type="button">
+            Revelar novamente
+          </button>
+        </div>
+
+        <div id="gallery" class="gallery" aria-live="polite"></div>
+
+        <div class="section-footer">
+          <button class="btn btn-ghost" data-scroll-to="#puzzleSection" type="button">
+            Próxima surpresa: nosso quebra-cabeça →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- QUEBRA-CABEÇA ---------- -->
+    <section id="puzzleSection" class="section puzzle-section" aria-labelledby="puzzleTitle">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="eyebrow">Capítulo 03</p>
+          <h2 id="puzzleTitle" class="display-lg">Um quebra-cabeça só nosso</h2>
+          <p class="lead-sm">
+            <strong>Arraste</strong> uma peça sobre outra para trocá-las de lugar.
+            Quando uma peça chega ao lugar certo, ela <strong>fica travada</strong> automaticamente.
+            Você também pode tocar em duas peças (ou usar Tab + Enter) para trocá-las.
+          </p>
+        </header>
+
+        <div class="puzzle-layout">
+          <div class="puzzle-preview">
+            <p class="preview-label">Imagem original</p>
+            <img id="puzzlePreview" src="" alt="Prévia da imagem do quebra-cabeça" />
+          </div>
+
+          <div class="puzzle-main">
+            <div class="puzzle-frame" id="puzzleFrame">
+              <div id="puzzleGrid" class="puzzle-grid" role="grid" aria-label="Quebra-cabeça interativo"></div>
+            </div>
+
+            <div class="puzzle-status">
+              <span id="puzzleProgress" aria-live="polite">0 de 9 peças no lugar</span>
+              <span id="puzzleMoves">Movimentos: 0</span>
+              <button id="shuffleBtn" class="btn btn-ghost btn-sm" type="button">
+                Embaralhar novamente
+              </button>
+            </div>
+
+            <div id="puzzleSuccess" class="puzzle-success hidden" role="status">
+              <p class="puzzle-success-eyebrow">Você conseguiu!</p>
+              <p class="puzzle-success-message" id="puzzleSuccessMessage"></p>
+              <button class="btn btn-primary" data-scroll-to="#musicSection" type="button">
+                Continuar →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- TRILHA SONORA ---------- -->
+    <section id="musicSection" class="section music-section" aria-labelledby="musicTitle">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="eyebrow">Capítulo 04</p>
+          <h2 id="musicTitle" class="display-lg">A nossa trilha sonora</h2>
+          <p class="lead-sm">A música que sempre nos lembra de nós.</p>
+        </header>
+
+        <div class="music-card">
+          <div class="music-cover">
+            <img id="musicCover" src="" alt="Capa da música" loading="lazy" />
+          </div>
+          <div class="music-info">
+            <p class="music-label">Tocando agora…</p>
+            <h3 id="musicTitleText" class="music-title">—</h3>
+            <p id="musicArtist" class="music-artist">—</p>
+            <p id="musicDescription" class="music-description"></p>
+
+            <div id="musicEmbedWrap" class="music-embed-wrap hidden"></div>
+
+            <a id="spotifyLink" class="btn btn-primary hidden" href="#" target="_blank" rel="noopener noreferrer">
+              Ouvir no Spotify
+            </a>
+
+            <p id="musicFallback" class="music-fallback hidden">
+              A trilha sonora ainda não foi configurada. Adicione os dados em <code>CONFIG.music</code>.
+            </p>
+          </div>
+        </div>
+
+        <div class="section-footer">
+          <button class="btn btn-ghost" data-scroll-to="#timelineSection" type="button">
+            Ver nossa linha do tempo →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- LINHA DO TEMPO ---------- -->
+    <section id="timelineSection" class="section timeline-section" aria-labelledby="timelineTitle">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="eyebrow">Capítulo 05</p>
+          <h2 id="timelineTitle" class="display-lg">Momentos que marcaram<br />a nossa história</h2>
+        </header>
+
+        <ol id="timelineList" class="timeline"></ol>
+
+        <div class="section-footer">
+          <button class="btn btn-ghost" data-scroll-to="#letterSection" type="button">
+            Ler minha carta →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- CARTA ---------- -->
+    <section id="letterSection" class="section letter-section" aria-labelledby="letterSectionTitle">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="eyebrow">Capítulo 06</p>
+          <h2 id="letterSectionTitle" class="display-lg">Uma mensagem só nossa</h2>
+          <p class="lead-sm">Algumas palavras que eu precisava te dizer.</p>
+        </header>
+
+        <div class="letter-stage">
+          <div class="envelope" id="letterEnvelope" aria-hidden="true">
+            <div class="envelope-back"></div>
+            <div class="envelope-flap"></div>
+            <div class="envelope-front"></div>
+            <div class="envelope-seal">♥</div>
+          </div>
+
+          <article id="letterPaper" class="letter-paper hidden" aria-labelledby="letterTitle">
+            <h3 id="letterTitle" class="letter-title">—</h3>
+            <p id="letterGreeting" class="letter-greeting">—</p>
+            <div id="letterParagraphs" class="letter-paragraphs"></div>
+            <p id="letterSignature" class="letter-signature">—</p>
+            <p id="letterDate" class="letter-date"></p>
+          </article>
+        </div>
+
+        <div class="letter-controls">
+          <button id="openLetterBtn" class="btn btn-primary" type="button">
+            Abrir minha carta
+          </button>
+          <button id="revealLetterBtn" class="btn btn-ghost hidden" type="button">
+            Revelar tudo
+          </button>
+        </div>
+
+        <div class="section-footer">
+          <button class="btn btn-ghost" data-scroll-to="#endingSection" type="button">
+            Ver a mensagem final →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- ENCERRAMENTO ---------- -->
+    <section id="endingSection" class="section ending-section" aria-labelledby="endingTitle">
+      <div class="section-inner ending-grid">
+        <figure class="ending-photo polaroid">
+          <img id="finalImage" src="" alt="Foto final do casal" loading="lazy" />
+        </figure>
+        <div class="ending-text">
+          <p class="eyebrow">E continua…</p>
+          <h2 id="endingTitle" class="display-xl" data-bind="endingTitle">E essa história continua</h2>
+          <p id="endingMessage" class="lead"></p>
+          <p class="ending-signature" data-bind="displayNames">Marina & Rafael</p>
+
+          <div class="ending-actions">
+            <button class="btn btn-primary" data-scroll-to="#memoriesSection" type="button">
+              Rever nossas memórias
+            </button>
+            <button class="btn btn-ghost" data-scroll-to="#heroSection" type="button">
+              Voltar ao início
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== MODAL DE FOTO ===================== -->
+  <div id="photoModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="photoModalCaption">
+    <div class="modal-backdrop" data-modal-close></div>
+    <div class="modal-content" role="document">
+      <button class="modal-close" id="photoModalClose" type="button" aria-label="Fechar foto ampliada">×</button>
+      <figure class="modal-figure">
+        <img id="photoModalImage" src="" alt="" />
+        <figcaption>
+          <span id="photoModalCaption"></span>
+          <span id="photoModalDate" class="modal-date"></span>
+        </figcaption>
+      </figure>
+      <p id="photoModalDescription" class="modal-description"></p>
+    </div>
+  </div>
+
+  <!-- ===================== AVISO DEMO ===================== -->
+  <div id="demoBadge" class="demo-badge hidden" role="note">
+    <strong>Modo demonstração</strong>
+    <span>Personalize tudo em <code>CONFIG</code> no <code>main.js</code>.</span>
+    <button id="demoBadgeClose" type="button" aria-label="Fechar aviso">×</button>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
